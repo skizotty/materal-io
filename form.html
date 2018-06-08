@@ -29,6 +29,7 @@
 		padding-top: 7px;
 		position: relative;
 		box-sizing: border-box;
+		border-radius: 3px 3px 0px 0px;
 
 	 }
 	 .input-lockup .input-text {
@@ -198,12 +199,14 @@
 			}
 			console.log(input.value);
 		}
+
 		var warnText = "No numbers, spaces, or special characters.";
 		var normText = document.querySelector('.hint-text').textContent;
 		var helperText = document.querySelector('.hint-text');
 		var incorrectIcon = document.querySelector(".incorrect-icon");
 		var correctIcon = document.querySelector(".correct-icon");
 	    var input = document.querySelector('[name=username]');
+
 		input.addEventListener('keyup', handleUpdate);
 		correctIcon.addEventListener('click', clearInput);
 
