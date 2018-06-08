@@ -1,0 +1,217 @@
+
+<link href="https://fonts.googleapis.com/css?family=Raleway:500,600" rel="stylesheet">
+<style>
+	:root {
+	  --text-color: #717171;
+	  --form-bg-color: #E4E4E4;
+	  --form-border-color: #551A8B;
+	  --error-color: #cc0000;
+	  --text-hover: #d3d3d3;
+	}
+
+	body { 
+		font-family: 'Raleway', sans-serif;
+		color: var(--text-color);
+		font-size:15px;
+		-webkit-font-smoothing: antialiased;
+	}
+	
+
+	.input-lockup{ 
+		transition: all .5s ease;
+		border-bottom: 2px solid var(--text-color);
+		height: 56px;
+		width:312px;
+		background:var(--form-bg-color);
+		color:var(--text-color);
+		margin:20px;
+		padding-left: 50px;
+		padding-top: 7px;
+		position: relative;
+		box-sizing: border-box;
+
+	 }
+	 .input-lockup .input-text {
+	 	position: absolute;
+	 	top:0px;
+	 	right:0px;
+	 	bottom:0px;
+	 	left:50px;
+	 }
+
+		 .input-lockup label{
+		 		transition: all 0.3s ease-out;
+		 		color: var(--form-border-color);
+		 		margin-left:40px;
+		 		font-size:16px;
+		 		display:block;
+		 		position: absolute;
+		 		margin:0;
+		 		font-weight: 600;
+		 		top:17px;
+		 		color:var(--text-color);
+
+		 }
+
+		 .input-lockup .icon-before{
+		 		position: absolute;
+		 		top:50%;
+		 		transform:translateY(-50%);
+		 		left:12px;
+			}
+		 .input-lockup .icon-before path{
+		 		fill: var(--text-color);
+			}
+		 .input-lockup{
+		 		transition: all 0.5s ease;
+		 		position:relative;
+			}
+			 .input-lockup input{
+			 		font-size:16px;
+			 		background: none;
+			 		border: none;.
+		 			display:block;
+		 			display:none;
+		 			position: absolute;
+		 			font-weight: 500;
+		 			bottom:10px;
+		 			right:40px;
+		 			left:0px;
+				}
+			 .input-lockup input:focus{
+			 		outline:none;
+				}
+		 .input-lockup .icon-after{
+		 		position: absolute;
+		 		right:12px;
+		 		top:50%;
+		 		transform: translateY(-50%);
+		 		float:right;
+		 		cursor: pointer;
+		 		z-index: 1000;
+
+			}
+		 .input-lockup .icon-after path{
+				fill: var(--text-color);
+			}
+		 .input-lockup .icon-after .incorrect-icon path{
+				fill: var(--error-color);
+			}	
+		 .input-lockup .icon-after .incorrect-icon {
+		 		display:none;
+			}	
+		 .input-lockup .icon-after .correct-icon {
+		 		display:none;
+			}	
+		 .input-lockup.active label { 
+		 		top:8px;
+		 		display:block;
+		 		font-size:12px;	
+		 		color:var(--form-border-color);
+		  }
+		 .input-lockup.active input { 
+		 		display:block;
+		  }	
+		 .input-lockup.active { 
+				border-bottom: 2px solid var(--form-border-color);
+		  }	
+	 .hint-text{
+	 	font-size: 10px;
+	 	margin-left: 75px;
+		}
+
+</style>
+<body>
+	<div class="input-form">
+		<div class="input-lockup">
+			<div class="icon-before">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.822 18.096c-3.439-.794-6.64-1.49-5.09-4.418 4.72-8.912 1.251-13.678-3.732-13.678-5.082 0-8.464 4.949-3.732 13.678 1.597 2.945-1.725 3.641-5.09 4.418-3.073.71-3.188 2.236-3.178 4.904l.004 1h23.99l.004-.969c.012-2.688-.092-4.222-3.176-4.935z"/></svg>
+			</div>
+			<div class="input-text">
+				<label for="username">Username</label>
+				<input  type="textarea" name="username">
+			</div>
+			<div class="icon-after">
+				<div class="correct-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 16.538l-4.592-4.548 4.546-4.587-1.416-1.403-4.545 4.589-4.588-4.543-1.405 1.405 4.593 4.552-4.547 4.592 1.405 1.405 4.555-4.596 4.591 4.55 1.403-1.416z"/></svg>
+				</div>
+				<div class="incorrect-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 18h-2v-8h2v8zm-1-12.25c.69 0 1.25.56 1.25 1.25s-.56 1.25-1.25 1.25-1.25-.56-1.25-1.25.56-1.25 1.25-1.25z"/></svg>
+				</div>
+			</div>
+		</div>
+		<div class="hint-text">Username can only contain letters.</div>
+	</div>
+
+	<script type="text/javascript">
+		function handleOutsideClick(e) {
+			if(!e.target.closest('.input-text')){
+				inputLockup.classList.remove('active');
+			}
+		}
+		function showInput() {
+			inputLockup.classList.add('active');
+		}
+		function showWarn() {
+			helperText.textContent = '';
+			helperText.textContent= warnText;
+		}
+		function hideWarn() {
+			helperText.textContent = '';
+			helperText.textContent= normText;
+		}
+		function clearInput(e) {
+			hideIcons();
+			input.value = '';
+		}
+		function hideIcons() {
+			correctIcon.style.display = 'none';
+			incorrectIcon.style.display = 'none';
+		}
+		function changeIcon(thing) {
+			if(thing){
+				correctIcon.style.display = 'block';
+				incorrectIcon.style.display = 'none';	
+			    document.documentElement.style.setProperty('--text-color','#717171');
+			    document.documentElement.style.setProperty('--form-border-color','#551A8B');
+			    hideWarn();
+			} else if(!thing){
+				correctIcon.style.display = 'none';
+				incorrectIcon.style.display = 'block';	
+			    document.documentElement.style.setProperty('--text-color','#cc0000');
+			    document.documentElement.style.setProperty('--form-border-color','#cc0000');
+			    showWarn();
+
+			}
+			
+		}
+		function handleUpdate(e) {
+		    input = document.querySelector('[name=username]');
+			var i = input.value.match(/^[a-zA-Z]+$/);
+			if(input.value.length==0){changeIcon(true);hideIcons();}
+			else if(!i){
+				console.log("no other characters allowed!");
+				changeIcon(false);
+			} else {
+				changeIcon(true);
+				return;
+			}
+			console.log(input.value);
+		}
+		var warnText = "No numbers, spaces, or special characters.";
+		var normText = document.querySelector('.hint-text').textContent;
+		var helperText = document.querySelector('.hint-text');
+		var incorrectIcon = document.querySelector(".incorrect-icon");
+		var correctIcon = document.querySelector(".correct-icon");
+	    var input = document.querySelector('[name=username]');
+		input.addEventListener('keyup', handleUpdate);
+		correctIcon.addEventListener('click', clearInput);
+
+		var inputLockup = document.querySelector('.input-lockup');
+		var inputText = document.querySelector('.input-text');
+
+		inputLockup.addEventListener('click', showInput);
+		document.addEventListener('click',handleOutsideClick)
+
+	</script>
+</body>
