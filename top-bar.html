@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Material IO Top Nav Bar</title>
+	<link href="https://fonts.googleapis.com/css?family=Raleway:500,600" rel="stylesheet">
+	<style type="text/css">
+		:root {
+			--text-color: white;
+			--purple-main: #551A8B;
+			--blue-dark: #566fa3;
+			--blue: #637eb6;
+			--blue-purple: #8087bd;
+			--blue-light: #8dabce;
+			--blue-purple-light: #9daadb;
+		}
+
+		body{
+			color:var(--text-color);
+			font-family: 'Raleway', sans-serif;
+		}
+		path {
+			fill:var(--text-color);
+		}
+		.viewing-window { 
+			width:360px;
+			height:80px;
+			background:var(--blue-purple-light);
+			position: relative;
+		 }
+
+		.viewing-window .sys-tray {
+			background:var(--blue-dark);
+			height:20px;
+			position:absolute;
+			top: 0;
+			left: 0;
+			width:360px;
+		}
+		.viewing-window .top-bar{
+			position:absolute;
+			top:20px;
+		}
+		.viewing-window .top-bar .hamburger-menu{ 
+			position:absolute;
+	 		top:16px;
+	 		left:16px;
+			bottom:16px;
+			cursor: pointer;
+
+		 }
+		.viewing-window .top-bar .hamburger-menu path{
+			fill:var(--text-color);
+		 }
+		.viewing-window .top-bar .page-title{
+			position:absolute;
+			left:72px;
+			top:19px;
+			bottom:16px;
+			width:100px;
+		 }
+		.viewing-window .top-bar .share-icon{
+			position:absolute;
+			left:237px;
+			top: 16px;
+			cursor: pointer;
+
+		 }
+		.viewing-window .top-bar .search-icon{
+			position:absolute;
+			left:285px;
+			top:16px;
+			cursor: pointer;
+
+		 }
+		.viewing-window .top-bar .overflow-menu{
+			position:absolute;
+			left:326px;
+			top: 16px;
+			cursor: pointer;
+
+		 }
+	</style>
+</head>
+<body>
+	<div class="viewing-window">
+		<div class="sys-tray"></div>
+		<div class="top-bar">
+			<div class="hamburger-menu">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/></svg>
+			</div>
+			<div class="page-title">Home Page</div>
+			<div class="share-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 7c2.761 0 5 2.239 5 5s-2.239 5-5 5-5-2.239-5-5 2.239-5 5-5zm11.122 12.065c-.073.301-.122.611-.122.935 0 2.209 1.791 4 4 4s4-1.791 4-4-1.791-4-4-4c-1.165 0-2.204.506-2.935 1.301l-5.488-2.927c-.23.636-.549 1.229-.943 1.764l5.488 2.927zm7.878-15.065c0-2.209-1.791-4-4-4s-4 1.791-4 4c0 .324.049.634.122.935l-5.488 2.927c.395.535.713 1.127.943 1.764l5.488-2.927c.731.795 1.77 1.301 2.935 1.301 2.209 0 4-1.791 4-4z"/></svg>
+			</div>
+			<div class="search-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z"/></svg>
+			</div>
+			<div class="overflow-menu">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 18c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm0-9c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm0-9c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3z"/></svg>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
