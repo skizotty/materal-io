@@ -17,7 +17,23 @@
 		body{
 			color:var(--text-color);
 			font-family: 'Raleway', sans-serif;
+
 		}
+
+		a {
+			text-decoration: none;
+			color: var(--text-color);
+		}
+		div {
+			transition: all 0.3s ease-out;
+
+		}
+		a:hover{
+			transition: all 0.3s ease-out;
+
+		 	color:var(--purple-main);
+
+		 }
 		path {
 			fill:var(--text-color);
 		}
@@ -48,9 +64,6 @@
 			cursor: pointer;
 
 		 }
-		.viewing-window .top-bar .hamburger-menu path{
-			fill:var(--text-color);
-		 }
 		.viewing-window .top-bar .page-title{
 			position:absolute;
 			left:72px;
@@ -79,6 +92,86 @@
 			cursor: pointer;
 
 		 }
+		.viewing-window .top-bar .hamburger-menu{ 
+			transition: all 0.3s ease-out;
+			position:absolute;
+	 		top:16px;
+	 		left:16px;
+			bottom:16px;
+			cursor: pointer;
+
+		 }
+		.viewing-window .top-bar .hamburger-menu .open-menu{ 
+			position:absolute;
+	 		top:0;
+	 		left:0;
+			bottom:0;
+			cursor: pointer;
+			display:none;
+
+		 }
+		 .viewing-window .top-bar .open-ham-menu {
+		 	position: absolute;
+		 	z-index: 1000;
+		 	display:none;
+		 }
+
+		 /* these are open classes*/
+		.viewing-window .top-bar .share-icon.open path{
+			fill:pink;
+
+		 }
+		.viewing-window .top-bar .overflow-menu.open path{
+			fill:pink;
+
+		 }
+		.viewing-window .top-bar .search-icon.open path{
+			fill:pink;
+
+		 }
+
+		.viewing-window .top-bar .search-icon.open{
+			position:absolute;
+			left:285px;
+			top:16px;
+			cursor: pointer;
+
+		 }
+		.viewing-window .top-bar .overflow-menu.open{
+			position:absolute;
+			left:326px;
+			top: 16px;
+			cursor: pointer;
+		 }
+
+		.viewing-window .top-bar .hamburger-menu.open .open-menu{ 
+
+			display:block;
+
+		 }
+		.viewing-window .top-bar .hamburger-menu.open .closed-menu{ 
+			position:absolute;
+	 		top:16px;
+	 		left:16px;
+			bottom:16px;
+			cursor: pointer;
+			display:none;
+
+		 }
+		 .viewing-window .top-bar .open-ham-menu.open {
+		 	width: 150px;
+		 	background:var(--blue-purple-light);
+		 	display: block ;
+		 	position: absolute;
+		 	z-index: 1000;
+		 	top:63px;
+		 	left:10px;
+		 }
+		 .viewing-window .top-bar .open-ham-menu.open a{
+		 	padding: 6px;
+		 	display: block;
+		 }
+
 	</style>
 </head>
 <body>
@@ -86,7 +179,13 @@
 		<div class="sys-tray"></div>
 		<div class="top-bar">
 			<div class="hamburger-menu">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/></svg>
+				<div class="closed-menu">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/></svg>	
+				</div>
+				<div class="open-menu">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+				</div>
+				
 			</div>
 			<div class="page-title">Home Page</div>
 			<div class="share-icon">
@@ -98,7 +197,66 @@
 			<div class="overflow-menu">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 18c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm0-9c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm0-9c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3z"/></svg>
 			</div>
+			<div class="open-ham-menu">
+				<a href="#">Home</a>	
+				<a href="#">Social Wall</a>	
+				<a href="#">Settings</a>	
+				<a href="#">Logout</a>	
+			</div>			
 		</div>
+
 	</div>
+<script type="text/javascript">
+	function handleOutsideClick(e) {
+		if(!e.target.closest('.closed-menu')){
+			if(typeof last == 'undefined'){
+				return;
+			}else{
+				last.classList.remove('open');	
+			}
+			
+		}
+	}
+
+	function handleClick(e) {
+		hamMenu.classList.remove('open');
+		openMenu.classList.remove('open');
+		if(typeof last == 'undefined'){
+			last = this;
+		} else {
+			last.classList.remove('open');
+			last = this;
+		}
+		this.classList.add('open');
+	}
+
+	var last;
+	var hamMenu = document.querySelector('.hamburger-menu');
+	var shareIcon = document.querySelector('.share-icon');
+	var searchIcon = document.querySelector('.search-icon');
+	var overflowMenu = document.querySelector('.overflow-menu');
+	var closeIcon = document.querySelector('.open-menu');
+	var openMenu = document.querySelector('.open-ham-menu');
+	var closedMenu = document.querySelector('.closed-menu');
+
+
+	var selectorsList = [];
+	selectorsList.push(shareIcon,searchIcon,overflowMenu);
+	selectorsList.forEach(selector => selector.addEventListener('click',handleClick));
+
+	closeIcon.addEventListener('click',function(e) {
+		hamMenu.classList.remove('open');
+		openMenu.classList.remove('open');
+
+	});
+
+	closedMenu.addEventListener('click',function(e) {
+		selectorsList.forEach(selector => selector.classList.remove('open'));
+		hamMenu.classList.add('open');
+		openMenu.classList.add('open');
+	});
+
+
+</script>
 </body>
 </html>
